@@ -14,17 +14,21 @@ let userAge = prompt("Inserisci la tua età in numeri");
 // const km price
 const kmPrice = 0.21;
 
-// underage discont
-
-// senior discount
 
 // var ticket price
 let ticketPrice = (kmNumber * kmPrice);
 
-// var underage ticket price
+// underage discont
+const underageDiscount = (ticketPrice * 0.20);
 
+// senior discount
+const seniorDiscount = (ticketPrice * 0.40);
+
+// var underage ticket price
+let underageTicket = (ticketPrice - underageDiscount)
 
 // var senior ticket price
+let seniorTicket = (ticketPrice - seniorDiscount)
 
 // Ticket price appears in ticket div
 if ((! isNaN(kmNumber) && ! isNaN(userAge))) {
@@ -40,6 +44,7 @@ else{
 
 }
 
+// Ticket appears discounted for underage
 
 
    
