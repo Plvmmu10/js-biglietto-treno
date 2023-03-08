@@ -33,31 +33,32 @@ let seniorTicket = (ticketPrice - seniorDiscount) .toFixed(2);
 // Ticket price appears in ticket div
 if ((! isNaN(kmNumber) && ! isNaN(userAge))) {
     
-    document.getElementById('ticket').innerHTML=
+    document.getElementById('ticket-price').innerHTML=
     `<strong>${ticketPrice}</strong>`;
+
 }
-// Error message if data chosen by user are not numbers
+// error message
 else{
 
-    document.getElementById('ticket').innerHTML=
+    document.getElementById('ticket-price').innerHTML=
     `<p class="text-danger strong">I dati inseriti non sono validi</p>`;
 
 }
 
-// Ticket appears discounted for underage
-if (userAge <= 17){
+if (userAge < 18) {
 
-    document.getElementById('ticket').innerHTML=
+    document.getElementById('ticket-price').innerHTML=
     `<strong>${underageTicket} - <em class="text-danger">20%</em>!</strong>`;
-} 
-// Ticket appears discounted for senior
-else if (userAge >= 65){
 
-    document.getElementById('ticket').innerHTML=
-    `<strong>${seniorTicket} - <em class="text-danger">40%</em>!</strong>`;
 }
 
 
+ if (userAge > 64) {
+
+    document.getElementById('ticket-price').innerHTML=
+    `<strong>${seniorTicket} - <em class="text-danger">40%</em>!</strong>`;
+
+}
 
 
 
