@@ -16,7 +16,7 @@ const kmPrice = 0.21;
 
 
 // var ticket price
-let ticketPrice = (kmNumber * kmPrice);
+let ticketPrice = (kmNumber * kmPrice) .toFixed(2);
 
 // underage discont
 const underageDiscount = (ticketPrice * 0.20);
@@ -25,10 +25,10 @@ const underageDiscount = (ticketPrice * 0.20);
 const seniorDiscount = (ticketPrice * 0.40);
 
 // var underage ticket price
-let underageTicket = (ticketPrice - underageDiscount)
+let underageTicket = (ticketPrice - underageDiscount) .toFixed(2);
 
 // var senior ticket price
-let seniorTicket = (ticketPrice - seniorDiscount)
+let seniorTicket = (ticketPrice - seniorDiscount) .toFixed(2);
 
 // Ticket price appears in ticket div
 if ((! isNaN(kmNumber) && ! isNaN(userAge))) {
@@ -45,9 +45,19 @@ else{
 }
 
 // Ticket appears discounted for underage
+if (userAge <= 17){
+
+    document.getElementById('ticket').innerHTML=
+    `<strong>${underageTicket} - <em class="text-danger">20%</em>!</strong>`;
+} 
+// Ticket appears discounted for senior
+else if (userAge >= 65){
+
+    document.getElementById('ticket').innerHTML=
+    `<strong>${seniorTicket} - <em class="text-danger">40%</em>!</strong>`;
+}
 
 
-   
 
 
 
