@@ -14,7 +14,6 @@
 const confirmBtn = document.querySelector('#btnConfirm')
 confirmBtn.addEventListener('click', function () {
 
-    document.getElementById("ticket-price-container").classList.add('d-block');
 
     let age = (ageBox.value);
 
@@ -70,14 +69,13 @@ confirmBtn.addEventListener('click', function () {
     
 })
 
-const cancelBtn = document.querySelector("#btnCancel")
+const cancelBtn = document.querySelector("#btnCancel");
 cancelBtn.addEventListener('click', function(){
 
     kmBox.value = "";
 
     ageBox.value = "";
 
-    document.getElementById("ticket-price-container").classList.add('d-none');
 })
 
 
