@@ -5,15 +5,17 @@
 // va applicato uno sconto del 40% per gli over 65.
 // L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 
-    const kmBox = document.querySelector('input[name= "km"]');
+    let kmBox = document.querySelector('input[name= "km"]');
 
     // var passenger age
-    const ageBox = document.querySelector('input[name= "age"]');
+    let ageBox = document.querySelector('input[name= "age"]');
 
 
 const confirmBtn = document.querySelector('#btnConfirm')
 confirmBtn.addEventListener('click', function () {
-    
+
+    document.getElementById("ticket-price-container").classList.add('d-block');
+
     let age = (ageBox.value);
 
     let km = (kmBox.value);
@@ -36,7 +38,7 @@ confirmBtn.addEventListener('click', function () {
     // var senior ticket price
     let seniorTicket = (ticketPrice - seniorDiscount).toFixed(2);
 
-    if ((!isNaN(km) && !isNaN(age))) {
+    if ((! isNaN(km) && ! isNaN(age))) {
 
         if (age < 18) {
 
@@ -66,6 +68,16 @@ confirmBtn.addEventListener('click', function () {
 
     }
     
+})
+
+const cancelBtn = document.querySelector("#btnCancel")
+cancelBtn.addEventListener('click', function(){
+
+    kmBox.value = "";
+
+    ageBox.value = "";
+
+    document.getElementById("ticket-price-container").classList.add('d-none');
 })
 
 
