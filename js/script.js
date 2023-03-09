@@ -41,6 +41,9 @@ confirmBtn.addEventListener('click', function () {
 
         if (age < 18) {
 
+            document.getElementById('ticket-price-title').innerHTML=
+            `<strong>Il prezzo del biglietto è</strong>`
+            
             document.getElementById('ticket-price').innerHTML =
                 `<strong>${underageTicket} &euro; - <em class="text-danger">20%</em>!</strong>`;
 
@@ -48,12 +51,19 @@ confirmBtn.addEventListener('click', function () {
 
         else if (age > 64) {
 
+            document.getElementById('ticket-price-title').innerHTML=
+            `<strong>Il prezzo del biglietto è</strong>`
+
             document.getElementById('ticket-price').innerHTML =
                 `<strong>${seniorTicket} &euro; - <em class="text-danger">40%</em>!</strong>`;
 
         }
 
         else {
+
+            document.getElementById('ticket-price-title').innerHTML=
+            `<strong>Il prezzo del biglietto è</strong>`
+            
             document.getElementById('ticket-price').innerHTML =
                 `<strong>${ticketPrice} &euro;</strong>`;
         }
@@ -77,6 +87,8 @@ cancelBtn.addEventListener('click', function(){
     ageBox.value = "";
 
     document.getElementById('ticket-price').innerHTML="";
+
+    document.getElementById('ticket-price-title').innerHTML="";
 
 })
 
