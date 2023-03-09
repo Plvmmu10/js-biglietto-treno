@@ -5,66 +5,70 @@
 // va applicato uno sconto del 40% per gli over 65.
 // L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 
-// var km number
-let kmNumber = prompt("Inserisci il numero di kilometri che vuoi percorrere");
+    const kmBox = document.querySelector('input[name= "km"]');
 
-// var passenger age
-let userAge = prompt("Inserisci la tua età in numeri");
-
-// const km price
-const kmPrice = 0.21;
+    // var passenger age
+    const ageBox = document.querySelector('input[name= "age"]');
 
 
-// var ticket price
-let ticketPrice = (kmNumber * kmPrice) .toFixed(2);
-
-// underage discont
-const underageDiscount = (ticketPrice * 0.20);
-
-// senior discount
-const seniorDiscount = (ticketPrice * 0.40);
-
-// var underage ticket price
-let underageTicket = (ticketPrice - underageDiscount) .toFixed(2);
-
-// var senior ticket price
-let seniorTicket = (ticketPrice - seniorDiscount) .toFixed(2);
-
-// Ticket price appears in ticket div
-if ((! isNaN(kmNumber) && ! isNaN(userAge))) {
-     
-
-    if (userAge < 18) {
-
-        document.getElementById('ticket-price').innerHTML=
-        `<strong>${underageTicket} &euro; - <em class="text-danger">20%</em>!</strong>`;
+const confirmBtn = document.querySelector('#btnConfirm')
+confirmBtn.addEventListener('click', function () {
     
+    let age = (ageBox.value);
+
+    let km = (kmBox.value);
+
+    // const km price
+    const kmPrice = 0.21;
+
+    // var ticket price
+    let ticketPrice = (km * kmPrice).toFixed(2);
+
+    // underage discont
+    const underageDiscount = (ticketPrice * 0.20);
+
+    // senior discount
+    const seniorDiscount = (ticketPrice * 0.40);
+
+    // var underage ticket price
+    let underageTicket = (ticketPrice - underageDiscount).toFixed(2);
+
+    // var senior ticket price
+    let seniorTicket = (ticketPrice - seniorDiscount).toFixed(2);
+
+    if ((!isNaN(km) && !isNaN(age))) {
+
+        if (age < 18) {
+
+            document.getElementById('ticket-price').innerHTML =
+                `<strong>${underageTicket} &euro; - <em class="text-danger">20%</em>!</strong>`;
+
+        }
+
+        else if (age > 64) {
+
+            document.getElementById('ticket-price').innerHTML =
+                `<strong>${seniorTicket} &euro; - <em class="text-danger">40%</em>!</strong>`;
+
+        }
+
+        else {
+            document.getElementById('ticket-price').innerHTML =
+                `<strong>${ticketPrice} &euro;</strong>`;
+        }
+
+    }
+    // error message
+    else {
+
+        document.getElementById('ticket-price').innerHTML =
+            `<p class="text-danger strong">I dati inseriti non sono validi</p>`;
+
     }
     
-    
-    else if (userAge > 64) {
-    
-        document.getElementById('ticket-price').innerHTML=
-        `<strong>${seniorTicket} &euro; - <em class="text-danger">40%</em>!</strong>`;
-    
-    }
-
-    else{
-        document.getElementById('ticket-price').innerHTML=
-        `<strong>${ticketPrice} &euro;</strong>`;
-    }
-
-}
-// error message
-else{
-
-    document.getElementById('ticket-price').innerHTML=
-    `<p class="text-danger strong">I dati inseriti non sono validi</p>`;
-
-}
+})
 
 
 
 
 
-    
