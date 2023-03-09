@@ -76,6 +76,8 @@ cancelBtn.addEventListener('click', function(){
 
     ageBox.value = "";
 
+    document.getElementById('ticket-price').innerHTML="";
+
 })
 
 
