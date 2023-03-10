@@ -68,16 +68,15 @@ confirmBtn.addEventListener('click', function () {
                 `<strong>${ticketPrice} &euro;</strong>`;
         }
 
-    }
-    // error message
-    else {
-
-        document.getElementById('ticket-price').innerHTML =
+    }else {
+        document.getElementById('ticket-price-container').innerHTML =
             `<p class="text-danger strong">I dati inseriti non sono validi</p>`;
-
     }
+
+
     
 })
+
 
 const cancelBtn = document.querySelector("#btnCancel");
 cancelBtn.addEventListener('click', function(){
